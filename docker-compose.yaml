@@ -9,12 +9,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./config:/config
+      - ./conf/default.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /tmp/acme_challenge:/tmp/acme_challenge
-    networks:
-      - app
     restart: always
-networks:
-  app:
-    driver: bridge
